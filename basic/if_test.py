@@ -20,3 +20,16 @@ if money1 >= 3000:
     print('택시ㄱ')
 else:
     print('걸어서ㄱ')
+
+jumsu = int(input('성적 입력: \n'))
+print('입력한 성적은 %s 입니다.'%jumsu)
+#print('입력한 성적은',jumsu,'입니다')
+
+if jumsu >90:
+    print('A')
+elif jumsu >80:
+    print('B')
+elif jumsu>60:
+    print('c')
+else:
+    print('F')
