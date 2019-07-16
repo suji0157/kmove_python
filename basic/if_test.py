@@ -21,15 +21,25 @@ if money1 >= 3000:
 else:
     print('걸어서ㄱ')
 
+
+
 jumsu = int(input('성적 입력: \n'))
 print('입력한 성적은 %s 입니다.'%jumsu)
 #print('입력한 성적은',jumsu,'입니다')
 
+
+
 if jumsu >90:
-    print('A')
+    #print('A')
+    total='a'
 elif jumsu >80:
-    print('B')
+    #print('B')
+    total='b'
 elif jumsu>60:
-    print('c')
+    #print('c')
+    total='c'
 else:
-    print('F')
+    #print('F')
+    total='f'
+
+print('당신의 학점은 {} 입니다.'.format(total))
