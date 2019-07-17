@@ -31,3 +31,4 @@ for i in range(5):
             num=random.randint(1,46)
         lotto[x]=num
     print('lotto :',sorted(lotto))
+    
