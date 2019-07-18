@@ -34,4 +34,4 @@ f.close()
 # with문과 함께 사용하기
 
 with open('basic/test.txt','a',encoding='utf8') as f:
-    f.write('Life is too short, you need python')
+    f.write('우리')
