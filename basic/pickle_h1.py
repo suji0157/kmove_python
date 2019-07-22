@@ -12,7 +12,8 @@ while True:
     
     if menu=='1': 
         f=open('basic/word.txt','rb')
-        pickle.dump(data,f)
+        data = pickle.load(f)
+        print(data)
         line = 1
         #w.clear()
         
