@@ -96,26 +96,6 @@ while True: # 무한반복
             print('현재 페이지는 {} 쪽 입니다.'.format(page + 1))
             print(custlist[page])
 
-
-# 유일한 값(중복되지 않는 값)을 찾아서 수정하거나 삭제해야함
-# key = email (유일한 값)
-
-    elif choice=='D':
-        print("고객 정보 삭제") 
-        choice1 = input('삭제하려는 고객의 이메일을 입력하세요.')
-        delok = 0
-        for i in range(0,len(custlist)):
-            if custlist[i]['email']== choice:
-                print('{} 고객님의 정보가 삭제되었습니다.'.format(custlist[i]['name']))
-                del custlist[i]
-                print(custlist)
-                delok = 1
-                break
-
-        if delok == 0:
-            print('등록되지 않은 이메일입니다.')
-            print(custlist)
-
     elif choice=="U": 
         print("고객 정보 수정")
 
@@ -144,23 +124,31 @@ while True: # 무한반복
             else:
                 print('존재하지 않는 정보입니다.')
                 break
+
+
+# 유일한 값(중복되지 않는 값)을 찾아서 수정하거나 삭제해야함
+# key = email (유일한 값)
+
+    elif choice=='D':
+        print("고객 정보 삭제") 
+        choice1 = input('삭제하려는 고객의 이메일을 입력하세요.')
+        delok = 0
+        for i in range(0,len(custlist)):
+            if custlist[i]['email']== choice:
+                print('{} 고객님의 정보가 삭제되었습니다.'.format(custlist[i]['name']))
+                del custlist[i]
+                print(custlist)
+                delok = 1
+                break
+
+        if delok == 0:
+            print('등록되지 않은 이메일입니다.')
+            print(custlist)
+            
     
     elif choice=="Q":
         print("프로그램 종료")
         break
-
-    elif choice=='O':
-        print('고객 정보를 불러옵니다.')
-        f = open('basic/costlist.txt','rb')
-        data = pickle.load(f)
-        print(data)
-
-    elif choice=='S':
-        print('고객 정보를 저장합니다.')
-        f = open('basic/costlist.txt','wb')
-        data = {}
-        pickle.dump(data,f)
-        f.close()
     
     else:
         print("잘못입력하셨습니다.")

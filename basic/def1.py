@@ -2,7 +2,18 @@ import re,pickle,os
 custlist=[]
 page=-1
 
-
+while True:
+    choice=input('''
+    다음 중에서 하실 일을 골라주세요 :
+    I - 고객 정보 입력
+    C - 현재 고객 정보 조회
+    P - 이전 고객 정보 조회
+    N - 다음 고객 정보 조회
+    U - 고객 정보 수정
+    D - 고객 정보 삭제
+    Q - 프로그램 종료
+    ''').upper()  
+    exe(choice)
 
 def exe(choice):
         if choice=='I': #고객 정보 입력
@@ -26,19 +37,6 @@ def exe(choice):
         elif choice=='Q': #프로그램 종료
             saveData()
             quit()
-            
-while True:
-    choice=input('''
-    다음 중에서 하실 일을 골라주세요 :
-    I - 고객 정보 입력
-    C - 현재 고객 정보 조회
-    P - 이전 고객 정보 조회
-    N - 다음 고객 정보 조회
-    U - 고객 정보 수정
-    D - 고객 정보 삭제
-    Q - 프로그램 종료
-    ''').upper()  
-    exe(choice)
 
 def insertData():
     customer={'name':'','sex':'',"email":'',"birthyear":''} # 전체정보 리스트에 저장   
@@ -155,7 +153,7 @@ def deleteData():
     choice3 = input('삭제하려는 고객의 이메일을 입력하세요.')
     delok = 0
     for i in range(0,len(custlist)):
-        if custlist[i]['email']== choice:
+        if custlist[i]['email']== choice3:
             print('{} 고객님의 정보가 삭제되었습니다.'.format(custlist[i]['name']))
             del custlist[i]
             print(custlist)
@@ -168,9 +166,10 @@ def deleteData():
 
 def quit():
     print("프로그램 종료")
+    
 
 def saveData():
-    with open('basic/data.pkl','wb') as f: # pkl도 되고 txt도 됨
+    with open('basic/data.pkl','wb',encoding='utf8') as f: # pkl도 되고 txt도 됨
         pickle.dump(custlist,f)
 
 def loadData():
@@ -179,7 +178,7 @@ def loadData():
     #파일이 존재할 경우에 읽어옴
     
     global page,custlist
-    if os.path.exists('basic/data.pkl'):
+    if os.path.exists('basic/data.pkl',encoding='utf8'):
         with open('basic/data.pkl','rb') as f:
             custlist=pickle.load(f)
             page=len(custlist)-1
